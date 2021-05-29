@@ -21,7 +21,7 @@ function Test1({ cen }) {
                                     {cen.address}
                                 </div>
                                 <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
-                                    DATE: {xxx.date}
+                                     {xxx.date}
                                 </div>
                                 <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                     TO: {cen.from}  FROM:{cen.to}
