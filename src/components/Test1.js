@@ -49,10 +49,7 @@ function Test1({ cen }) {
                         sess.map((xxx, i) => (
                             <div>
                                 {xxx.min_age_limit === 18 &&
-                                    <div key={i} style={{ display: "flex", backgroundColor: xxx.available_capacity_dose1 > 0 ? "yellow" : "black", color: xxx.available_capacity_dose1 > 0 ? "black" : "white", marginBottom: "20px" }}>
-                                        <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
-                                            {cen.district_name}
-                                        </div>
+                                    <div key={i} style={{ display: "flex", backgroundColor: xxx.available_capacity_dose1 > 0 ? "yellow" : "black", color: xxx.available_capacity_dose1 > 0 ? "black" : "white", marginBottom: "20px" }}                    
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                             {cen.address}
                                         </div>
