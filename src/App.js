@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import Test1 from './components/Test1.js';
+import { getCurrentDate } from './components/NewDate';
 
 function App() {
 
@@ -9,11 +10,11 @@ function App() {
   const [lanter, setLanter] = useState([])
 
   async function call() {
-    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=30-05-2021')
+    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
       .then(res => {
         setCenter(res.data.centers)
       })
-    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=30-05-2021')
+    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
       .then(res => {
         setLanter(res.data.centers)
       })
@@ -21,11 +22,11 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=30-05-2021')
+    axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
       .then(res => {
         setCenter(res.data.centers)
       })
-    axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=30-05-2021')
+    axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
       .then(res => {
         setLanter(res.data.centers)
       })
@@ -34,7 +35,9 @@ function App() {
 
   return (
     <div style={{ backgroundColor: "black" }}>
-      <button onClick={() => call()} >Refresh</button>
+      <div style={{ textAlign: "right" }}>
+        <button style={{ fontSize: "25px" }} onClick={() => call()} >R e f r e s h</button>
+      </div>
 
       {(center.length > 0) && (
         <div>
