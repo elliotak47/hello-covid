@@ -27,6 +27,9 @@ function Test1({ cen }) {
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                             {xxx.min_age_limit}
                                         </div>
+                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
+                                            {xxx.vaccine}
+                                        </div>
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                             {cen.fee_type}
                                         </div>
@@ -55,9 +58,6 @@ function Test1({ cen }) {
                                         </div>
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                             {xxx.date}
-                                        </div>
-                                        <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
-                                            {xxx.vaccine}
                                         </div>
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                             {cen.fee_type}
