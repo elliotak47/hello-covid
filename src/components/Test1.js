@@ -48,6 +48,11 @@ function Test1({ cen }) {
                     {
                         sess.map((xxx, i) => (
                             <div>
+
+                                 <div style={{ width: "200px", textAlign: "center",color:"red" }}>
+                                            Rotate your device to get more info...
+                                        </div>
+
                                 {xxx.min_age_limit === 18 &&
                                   <div style={{ display: "flex", backgroundColor: xxx.available_capacity_dose1 > 0 ? "yellow" : "black", color: xxx.available_capacity_dose1 > 0 ? "black" : "white", marginBottom: "20px" }}>
                                       
