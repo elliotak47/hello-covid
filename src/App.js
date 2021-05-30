@@ -58,12 +58,20 @@ const [load, setLoad] = useState(false)
               <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Available-capacity</b> </div>
             </div>) :
             (
+<div>
               <div style={{ display: "flex", backgroundColor: "grey", marginBottom: "20px", paddingTop: "20px", color: "white" }}>
                 <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Address</b> </div>
                 <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Date</b> </div>
                 <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Type</b> </div>
                 <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Available-capacity</b> </div>
               </div>
+
+       <div style={{ width: "200px", textAlign: "center",color:"red", fontSize: "8px" }}>
+                                            Rotate your device to get more info...
+                                        </div>
+
+
+</div>
             )
           }
           <div style={{ backgroundColor: "white", width: "100%", textAlign: "center" }}><b>JAIPUR-1</b></div>
