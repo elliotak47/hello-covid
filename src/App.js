@@ -66,7 +66,7 @@ const [load, setLoad] = useState(false)
                 <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Available-capacity</b> </div>
               </div>
 
-       <div style={{ width: "200px", textAlign: "center",color:"red", fontSize: "8px" }}>
+       <div style={{ width: "200px", color:"red", fontSize: "12px" }}>
                                             Rotate your device to get more info...
                                         </div>
 
