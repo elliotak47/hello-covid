@@ -12,11 +12,11 @@ function App() {
   const [xyz, setXyz] = useState([])
   const [audio] = useState(new Audio("https://cowinnn.s3.ap-south-1.amazonaws.com/notification_effects.mp3"));
   
-  useEffect(() => {
-    setInterval(() => {
-      call()
-    }, 7000);
-  },[]);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     call()
+  //   }, 7000);
+  // },[]);
 
   async function call() {
     setXyz([]);
