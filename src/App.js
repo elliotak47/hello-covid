@@ -8,12 +8,17 @@ function App() {
   const [center, setCenter] = useState([])
   const [lanter, setLanter] = useState([])
   const [load, setLoad] = useState(false)
-
+  const [xyz, setXyz] = useState([])
   const [audio] = useState(new Audio("https://cowinnn.s3.ap-south-1.amazonaws.com/notification_effects.mp3"));
+  
+  useEffect(() => {
+    setInterval(() => {
+      call()
+    }, 6000);
+  },[]);
 
   async function call() {
-    setXyz([])
-    setLoad(true);
+    setXyz([]);
     await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
       .then(res => {
         setCenter(res.data.centers)
@@ -24,26 +29,7 @@ function App() {
       })
     setLoad(false);
     callFun();
-
   }
-
-  useEffect(() => {
-    call()
-    // setXyz([])
-    // setLoad(true);
-    // axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
-    //   .then(res => {
-    //     setCenter(res.data.centers)
-    //   })
-    // axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
-    //   .then(res => {
-    //     setLanter(res.data.centers)
-    //   })
-    // setLoad(false);
-    // callFun();
-  }, []);
-
-  const [xyz, setXyz] = useState([])
 
   function callFun () {
     lanter.map(q => (
@@ -53,7 +39,7 @@ function App() {
         }
       })
     ))
-    // xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
+    xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
 
     const exist = xyz.map(x => {
       return x > 0;
