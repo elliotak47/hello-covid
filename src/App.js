@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       call()
-    }, 6000);
+    }, 7000);
   },[]);
 
   async function call() {
@@ -39,7 +39,7 @@ function App() {
         }
       })
     ))
-    xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
+    // xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
 
     const exist = xyz.map(x => {
       return x > 0;
@@ -59,7 +59,7 @@ const callMethod=()=>{
     <div style={{ backgroundColor: "black" }}>
       <div style={{ textAlign: "right" }}>
         <button style={{ fontSize: "25px" }} onClick={() => call()} >R e f r e s h</button>
-        <button style={{ fontSize: "25px" }} onClick={callMethod} >B E L L</button>
+        {/* <button style={{ fontSize: "25px" }} onClick={callMethod} >B E L L</button> */}
       </div>
       {load && (
         <div style={{ color: "Red", textAlign: "center" }}>L O A D I N G...</div>
