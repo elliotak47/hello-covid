@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import Test1 from './components/Test1.js';
 import { getCurrentDate } from './components/NewDate';
+import Example from './components/Example';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
 
   async function call() {
     setXyz([]);
+    setLoad(true);
     await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
       .then(res => {
         setCenter(res.data.centers)
@@ -39,7 +41,7 @@ function App() {
         }
       })
     ))
-    xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
+    // xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
 
     const exist = xyz.map(x => {
       return x > 0;
@@ -51,6 +53,7 @@ function App() {
 
 const callMethod=()=>{
   setTimeout(() => {
+    console.log("inside -----------------playSoun")
   audio.play();// TO PLAY SOUND...
   }, 100);
 }
@@ -62,7 +65,9 @@ const callMethod=()=>{
         {/* <button style={{ fontSize: "25px" }} onClick={callMethod} >B E L L</button> */}
       </div>
       {load && (
-        <div style={{ color: "Red", textAlign: "center" }}>L O A D I N G...</div>
+        <div style={{ color: "Red", textAlign: "center" }}>
+          <Example/>
+        </div>
       )}
       {(center.length > 0) && (
         <div>
