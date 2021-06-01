@@ -38,7 +38,7 @@ function App() {
   }
 
   function callFun () {
-    lanter.map(q => (
+    center.map(q => (
       q.sessions.map(w => {
         if (w.available_capacity_dose1 > 0) {
           xyz.push(w.available_capacity_dose1)
