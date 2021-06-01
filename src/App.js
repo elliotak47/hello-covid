@@ -15,7 +15,7 @@ function App() {
    useEffect(() => {
      setInterval(() => {
        call()
-     }, 60000);
+     }, 5000);
    },[]);
 
   async function call() {
@@ -24,10 +24,14 @@ function App() {
     await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
       .then(res => {
         setCenter(res.data.centers)
+      }).catch(err=>{
+        console.log("error is first call =>>>>>>>>",err);
       })
     await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
       .then(res => {
         setLanter(res.data.centers)
+      }).catch(err=>{
+        console.log("error is second call =>>>>>>>>",err);
       })
     setLoad(false);
     callFun();
@@ -41,7 +45,7 @@ function App() {
         }
       })
     ))
-    // xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
+    xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
 
     const exist = xyz.map(x => {
       return x > 0;
@@ -54,7 +58,22 @@ function App() {
 const callMethod=()=>{
   setTimeout(() => {
     console.log("inside -----------------playSoun")
-  audio.play();// TO PLAY SOUND...
+
+    var playPromise = audio.play();// TO PLAY SOUND...;
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(_ => {
+            // Automatic playback started!
+            // Show playing UI.
+            console.log("audio played auto");
+          })
+          .catch(error => {
+            // Auto-play was prevented
+            // Show paused UI.
+            console.log("playback prevented");
+          });
+      }
   }, 100);
 }
 
