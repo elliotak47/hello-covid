@@ -19,36 +19,31 @@ function App() {
    },[]);
 
   async function call() {
-    setXyz([]);
+    setXyz([])
     setLoad(true);
-    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"), 
-    {
-      headers: { 'Test-Header': 'test-value' }}
-      )
+    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
       .then(res => {
         setCenter(res.data.centers)
-      }).catch(err=>{
-        console.log("error is first call =>>>>>>>>",err);
+        callFun(res.data.centers);
       })
-  await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
-      .then(res => {
-        setLanter(res.data.centers)
-      }).catch(err=>{
-       console.log("error is second call =>>>>>>>>",err);
-      })
+  // await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
+  //     .then(res => {
+  //       setLanter(res.data.centers)
+  //     })
     setLoad(false);
-    callFun();
   }
 
-  function callFun () {
+  function callFun (center) {
+    console.log("============center-------------",center)
     center.map(q => (
       q.sessions.map(w => {
-        if (w.available_capacity_dose1 > 0) {
+        if (w.min_age_limit === 18 && w.available_capacity_dose1 > 0) {
           xyz.push(w.available_capacity_dose1)
         }
       })
     ))
-    // xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
+    console.log("============xyz-------------",xyz)
+    xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
 
     const exist = xyz.map(x => {
       return x > 0;
@@ -91,11 +86,11 @@ const callMethod=()=>{
           <Example/>
         </div>
       )}
-      {(center.length > 0) && (
+      {(center && center.length > 0) && (
         <div>
           {window.innerWidth > 500 ? (
             <div style={{ display: "flex", backgroundColor: "grey", marginBottom: "20px", paddingTop: "20px", color: "white" }}>
-              <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>District-Name</b> </div>
+              <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Pin-Code</b> </div>
               <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Address</b> </div>
               <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Date</b> </div>
               <div style={{ width: "200px", marginBottom: "20px", textAlign: "center" }}> <b>Time</b> </div>
@@ -125,7 +120,7 @@ const callMethod=()=>{
             })
             }
           </div>
-         <div style={{ backgroundColor: "white", textAlign: "center" }}><b>JAIPUR-2</b></div>
+         {/* <div style={{ backgroundColor: "white", textAlign: "center" }}><b>JAIPUR-2</b></div>
            <div>
             {lanter.map((cen, i) => {
               return (
@@ -133,7 +128,7 @@ const callMethod=()=>{
               )
             })
             }
-          </div>
+          </div> */}
         </div>
       )}
     </div>

@@ -14,8 +14,7 @@ function Test1({ cen}) {
                                 {xxx.min_age_limit === 18 &&
                                     <div style={{ display: "flex", backgroundColor: xxx.available_capacity_dose1 > 0 ? "yellow" : "black", color: xxx.available_capacity_dose1 > 0 ? "black" : "white", marginBottom: "20px" }}>
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
-                                            {cen.district_name}      
-
+                                            {cen.pincode}      
                                         </div>
                                         <div style={{ width: "200px", marginBottom: "20px", paddingTop: "20px", textAlign: "center" }}>
                                             {cen.address}
