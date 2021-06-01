@@ -21,7 +21,10 @@ function App() {
   async function call() {
     setXyz([]);
     setLoad(true);
-    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"))
+    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=505&date=' + getCurrentDate("-"), 
+    {
+      headers: { 'Test-Header': 'test-value' }}
+      )
       .then(res => {
         setCenter(res.data.centers)
       }).catch(err=>{
