@@ -45,7 +45,7 @@ function App() {
         }
       })
     ))
-    xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
+    // xyz.push(1);//TO TEST THAT SOUND IS WORKING OR NOT...
 
     const exist = xyz.map(x => {
       return x > 0;
