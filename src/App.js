@@ -30,18 +30,18 @@ function App() {
       }).catch(err=>{
         console.log("error is first call =>>>>>>>>",err);
       })
-    await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
+  await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
       .then(res => {
         setLanter(res.data.centers)
       }).catch(err=>{
-        console.log("error is second call =>>>>>>>>",err);
+       console.log("error is second call =>>>>>>>>",err);
       })
     setLoad(false);
     callFun();
   }
 
   function callFun () {
-    lanter.map(q => (
+    center.map(q => (
       q.sessions.map(w => {
         if (w.available_capacity_dose1 > 0) {
           xyz.push(w.available_capacity_dose1)
@@ -125,8 +125,8 @@ const callMethod=()=>{
             })
             }
           </div>
-          <div style={{ backgroundColor: "white", textAlign: "center" }}><b>JAIPUR-2</b></div>
-          <div>
+         <div style={{ backgroundColor: "white", textAlign: "center" }}><b>JAIPUR-2</b></div>
+           <div>
             {lanter.map((cen, i) => {
               return (
                 <Test1 key={i} cen={cen} />
