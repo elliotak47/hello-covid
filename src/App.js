@@ -27,12 +27,12 @@ function App() {
       }).catch(err=>{
         console.log("error is first call =>>>>>>>>",err);
       })
- //  await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
-     // .then(res => {
-     //   setLanter(res.data.centers)
-     // }).catch(err=>{
-     //   console.log("error is second call =>>>>>>>>",err);
-     // })
+  await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=506&date=' + getCurrentDate("-"))
+      .then(res => {
+        setLanter(res.data.centers)
+      }).catch(err=>{
+       console.log("error is second call =>>>>>>>>",err);
+      })
     setLoad(false);
     callFun();
   }
@@ -122,8 +122,8 @@ const callMethod=()=>{
             })
             }
           </div>
-      {/*    <div style={{ backgroundColor: "white", textAlign: "center" }}><b>JAIPUR-2</b></div>
-          <div>
+         <div style={{ backgroundColor: "white", textAlign: "center" }}><b>JAIPUR-2</b></div>
+           <div>
             {lanter.map((cen, i) => {
               return (
                 <Test1 key={i} cen={cen} />
@@ -131,7 +131,7 @@ const callMethod=()=>{
             })
             }
           </div>
-        </div>*/}
+        </div>
       )}
     </div>
   );
